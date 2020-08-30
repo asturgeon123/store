@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+  <h2>Editor</h2>
+  <div class="row mt-3">
+    <div class="col">
+      <div class="list-group"> {% for product in products %} <a href="#" class="item list-group-item list-group-item-action" data-title="{{ product['title'] }}" data-sku="{{ product['sku'] }}" data-index="{{ loop.index }}" data-url="{{ product['Url'] }}" data-price="{{ product['price'] }}" data-description="{{ product['description'] }}" data-tags="{{ product['tags']|join(' ') }}" data-mats="{{ product['mats'] }}" data-color="{{ product['color'] }}" data-size="{{ product['size'] }}" data-image1="{{ product["Images"][0] }}" data-image2="{{ product["Images"][1] }}" data-image3="{{ product["Images"][2] }}"> {{ product['title'] }} </a> {% endfor %} </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3">
+        <div class="card-header">Test<button class="add btn btn-primary">Add</button></div>
+        <div class="card-body">
+          <div class="form-group" action="http:/localhost:8989/741852963">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" id="edit_title" placeholder="Enter Title">
+          </div>
+			          <div class="form-group">
+            <label for="exampleInputEmail1">Url</label>
+            <input type="text" class="form-control" id="edit_url" placeholder="Enter Url">
+          </div>
+		<div class="form-group">
+            <label for="exampleInputEmail1">Index</label>
+            <input type="text" class="form-control" id="edit_index" placeholder="Index" readonly>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Sku</label>
+            <input type="text" class="form-control" id="edit_sku" placeholder="Enter sku">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input type="text" class="form-control" id="edit_price" placeholder="Ex. 20.00">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" class="form-control" id="edit_description" placeholder="Ex. This product is so great because it just is">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tags</label>
+            <input type="text" class="form-control" id="edit_tags" placeholder="Ex. Athletic Slim Child Adult Blue ">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Materials</label>
+            <input type="text" class="form-control" id="edit_mats" placeholder="Ex. 60% Double Layer Cotton">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Color</label>
+            <input type="text" class="form-control" id="edit_color" placeholder="Spider-Man Print">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Size</label>
+            <input type="text" class="form-control" id="edit_size" placeholder="Adult">
+          </div>
+          <button type="submit" class="submit btn btn-primary">Submit</button>
+          <button type="delete" class="delete btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3">
+        <div class="card-header">Images</div>
+        <div class="card-body">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Image Url 1</label>
+                  <input type="text" class="image_form form-control" id="image1_text" placeholder="Enter Url">
+                </div>
+                <img id="image1" class="d-block w-100" src="..." alt="First slide"> 
+				</div>
+              <div class="carousel-item">
+				<div class="form-group">
+                  <label for="exampleInputEmail1">Image Url 2</label>
+                  <input type="text" class="image_form form-control" id="image2_text" placeholder="Enter Url">
+                  </div>
+				  <img id="image2" class="d-block w-100" src="..." alt="Second slide"> 
+				</div>
+              <div class="carousel-item"> 
+				<div class="form-group">
+                  <label for="exampleInputEmail1">Image Url 3</label>
+                  <input type="text" class="image_form form-control" id="image3_text" placeholder="Enter Url">
+                  </div>
+				  <img id="image3" class="d-block w-100" src="..." alt="Third slide"> 
+				</div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="sr-only">Previous</span> </a>
+			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="sr-only">Next</span> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+</body>
+</html>

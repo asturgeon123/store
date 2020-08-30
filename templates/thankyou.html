@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<meta charset="utf-8">
+<title>Thank you</title>
+</head>
+
+<body>
+	<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="">Contact us</a>
+  </p>
+</div>
+<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/thank_you.js') }}"></script>
+</body>
+</html>
