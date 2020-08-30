@@ -29,7 +29,7 @@ def database_load(file='product_info.txt'):
 	f.close()
 	return data
 
-def sku_search(product_sku,key='sku', file= "C:\\cozastore-master\\cozastore-master\\product_info.txt"):
+def sku_search(product_sku,key='sku', file= "product_info.txt"):
 	for i in database_load(file)['data']:
 		print(i[key])
 		if int(i[key]) == int(product_sku):
@@ -40,7 +40,7 @@ def sku_search(product_sku,key='sku', file= "C:\\cozastore-master\\cozastore-mas
 
 def add_review(sku123,rating,review,name,email):
 	print(sku123,rating,review,name)
-	file = "C:\\cozastore-master\\cozastore-master\\product_reviews.txt"
+	file = "product_reviews.txt"
 	sku_location = sku_search(sku123,file)
 	index = 0
 	try:
@@ -94,7 +94,7 @@ def show_product(data):
 		add_review(data,rating,review,name,email)
 
 	print(data)
-	review_stack = sku_search(data, file="C:\\cozastore-master\\cozastore-master\\product_reviews.txt")
+	review_stack = sku_search(data, file="product_reviews.txt")
 	if review_stack == False:
 		review_stack = {"sku": "33039059312","reviews": [{"name": "","rating": "5","review": "Be the FIRST to write a review!!","email": ""}]}
 	item_stack = sku_search(data)
