@@ -41,7 +41,7 @@ def sku_search(product_sku,key='sku', file= "product_info.txt"):
 def add_review(sku123,rating,review,name,email):
 	print(sku123,rating,review,name)
 	file = "product_reviews.txt"
-	sku_location = sku_search(sku123,file)
+	sku_location = sku_search(sku123,file=file)
 	index = 0
 	try:
 		with open(file,'r') as f:
