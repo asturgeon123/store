@@ -97,3 +97,18 @@ $.ajax({
     }
 })})
 
+$('.item2').click(function(event) {event.preventDefault()
+	var order = $(this).data('order');
+	order = order.replace(/\'/g, '\"')
+	
+	order = JSON.parse(order)
+	var info = $(this).data('info');
+	console.log(info)
+	var total = $(this).data('total');
+	$(".info23").html(info['name'])
+	$(".info24").html("Address: "+info.address+info['city']+info['city']+info['state']+info['zip'])
+	$(".order-table").html("")
+	for (i = 0; i < order.length; i++) {
+		$(".order-table").append("<tr><th scope='row'>"+i+"</th><td>"+order[i][0]+"</td><td>"+order[i][1]+"</td><td>"+order[i][2]+"</td></tr>");
+	}
+})

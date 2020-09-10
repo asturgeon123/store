@@ -4,26 +4,7 @@
 	<title>Shoping Cart</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.png') }}"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/iconic/css/material-design-iconic-font.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/linearicons-v1.0.0/icon-font.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+{% include "linkcss.html" %}
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
@@ -172,6 +153,9 @@
 										Information
 									</span>
 									<div class="bor8 bg0 m-b-12">
+										<input id="1_name" class="shipping-form stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="fname" placeholder="Full Name">
+									</div>
+									<div class="bor8 bg0 m-b-12">
 										<input id="1_phone" class="shipping-form stext-111 cl8 plh3 size-111 p-lr-15" type="number" name="tel" placeholder="Phone">
 									</div>
 									<div class="bor8 bg0 m-b-12">
@@ -233,47 +217,9 @@
 		</span>
 	</div>
 
-<!--===============================================================================================-->	
-	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
-	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
-	<script>
-		$(".js-select2").each(function(){
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="{{ url_for('static',filename='vendor/MagnificPopup/jquery.magnific-popup.min.js') }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ url_for('static',filename='vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-	<script>
-		$('.js-pscroll').each(function(){
-			$(this).css('position','relative');
-			$(this).css('overflow','hidden');
-			var ps = new PerfectScrollbar(this, {
-				wheelSpeed: 1,
-				scrollingThreshold: 1000,
-				wheelPropagation: false,
-			});
-
-			$(window).on('resize', function(){
-				ps.update();
-			})
-		});
-	</script>
-<!--===============================================================================================-->
+{% include "scripts.html" %}
 	<script src="https://js.stripe.com/v3/"></script>
-	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
 	<script src="{{ url_for('static',filename='js/payment.js') }}"></script>
-	
 
 
 </body>

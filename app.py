@@ -129,9 +129,10 @@ def product(filename):
 def confirm_order():
 	if request.method == 'POST':
 		file = "orders.txt"
-		order = str(request.get_json()).replace('%20',' ')
-		order = order.replace("%22", "\"")
+		order = str(request.get_json()).replace("%22",'\"').replace("%20"," ")
+		#order = order.replace("%22", "")
 		data = database_load(file=file)
+		order = json.loads(order) #converting json string to actual json/dict
 		data['data'].append(order)
 		with open(file,'w') as f:
 			json.dump(data, f)
@@ -190,7 +191,7 @@ def editor():
 			f.close()
 		return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 	else:
-		return render_template('editor.html',products=database_load()['data'])
+		return render_template('editor.html',orders=database_load(file='orders.txt')['data'],products=database_load()['data'])
 
 
 

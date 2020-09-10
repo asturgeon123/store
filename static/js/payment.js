@@ -19,14 +19,15 @@ $('#checkout_button').on('click',function(e){
 	if (ready) {
 		console.log('Processing Payment')
 		var price = $(".complete-total").text().replace('$', '');
-		var order = {info:{"email":$("#1_email").val(),"phone":$("#1_phone").val(),"address":$("#1_address").val(),"city":$("#2_address").val(),"state":$("#3_address").val(),"zip":$("#4_address").val()}}
+		var order = {info:{"name":$("#1_name").val(),"email":$("#1_email").val(),"phone":$("#1_phone").val(),"address":$("#1_address").val(),"city":$("#2_address").val(),"state":$("#3_address").val(),"zip":$("#4_address").val()}}
 		var counter = 0
 		var product_info = document.getElementsByClassName("product_info")
+		order["order"]["data"] = []
 		for(var i=0; i<product_info.length; i++) {
 			counter++
 			console.log($(product_info[i]).data('name'))
 			var name = $(product_info[i]).data('name')
-			order[counter] = {"name":name,"title":$(product_info[i]).data('title'),"count":$(product_info[i]).data('count')}
+			order["order"]["data"][0].push([name,$(product_info[i]).data('title'),$(product_info[i]).data('count')]);
 		}
 					submission_status.setItem("status", 0);
 console.log(submission_status.getItem("status"))
@@ -43,7 +44,7 @@ console.log(submission_status.getItem("status"))
 				sessionId: responseJson.session_id
 			  }).then(function (result) {
 				  console.log()
-			//$.ajax({url: 'localhost:8989/thank-you',type: "POST",data: JSON.stringify(order),contentType: "application/json"});
+			//$.ajax({url: 'localhost:5000',type: "POST",data: JSON.stringify(order),contentType: "application/json"});
 				// If `redirectToCheckout` fails due to a browser or network
 				// error, display the localized error message to your customer
 				result.error.message
