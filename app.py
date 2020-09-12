@@ -193,6 +193,20 @@ def editor():
 	else:
 		return render_template('editor.html',orders=database_load(file='orders.txt')['data'],products=database_load()['data'])
 
+@app.route('/order_status',methods=["POST"])
+def order_status():
+		file = "orders.txt"
+		database = database_load(file=file)
+		data = request.get_json()
+		print(data)
+
+		database['data'][int(data['index'])-1]['info']['status'] = data['status']
+		print(database)
+		with open(file,'w') as f:
+			json.dump(database, f)
+			f.close()
+		return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
+
 
 
 if __name__ == '__main__':

@@ -1,4 +1,23 @@
 // JavaScript Document
+$(document).ready(function(){
+    // Loop through each div element with the class box
+    $(".item2").each(function(){
+        // Test if the div element is empty
+	var info = $(this).data('info');
+	info = info.replace(/\'/g, '\"')
+	info = JSON.parse(info)
+	
+	console.log(typeof info)
+	if (typeof info.status == 'undefined') {
+		$(this).append("<span class='badge badge-danger'>Not Completed</span>")
+	} else if (info.status == 'Completed') {
+		$(this).append("<span class='badge badge-success'>Completed</span>")
+	} else {
+		$(this).append("<span class='badge badge-warning'>"+info.status+"</span>")
+	}
+    });
+});
+
 
 $('.item').click(function(event) {event.preventDefault();
   var title = $(this).data('title');
@@ -99,16 +118,52 @@ $.ajax({
 
 $('.item2').click(function(event) {event.preventDefault()
 	var order = $(this).data('order');
+	var info = $(this).data('info');
+	var total = $(this).data('total');
+	var index = $(this).data('index');
+
+	//$('status_button').data('index',index); //setter
+	var status_button = document.getElementById("the_button");
+	status_button.setAttribute("data-index", index);
+	
+
 	order = order.replace(/\'/g, '\"')
+	info = info.replace(/\'/g, '\"')
 	
 	order = JSON.parse(order)
-	var info = $(this).data('info');
-	console.log(info)
-	var total = $(this).data('total');
-	$(".info23").html(info['name'])
-	$(".info24").html("Address: "+info.address+info['city']+info['city']+info['state']+info['zip'])
+	info = JSON.parse(info)
+	
+	console.log(typeof info)
+	if (typeof info.status == 'undefined') {
+		$(".status").html("<span class='badge badge-danger'>Not Completed</span>")
+	} else if (info.status == 'Completed') {
+		$(".status").html("<span class='badge badge-success'>Completed</span>")
+	} else {
+		$(".status").html("<span class='badge badge-warning'>"+info.status+"</span>")
+	}
+	
+	$(".info23").html("Name : "+info['name'])
+	$(".info25").html("Info : "+info.phone+" "+info.email)
+	$(".info24").html("Address : "+info.address+" "+info.city+" "+info.state+" "+info.zip)
 	$(".order-table").html("")
 	for (i = 0; i < order.length; i++) {
 		$(".order-table").append("<tr><th scope='row'>"+i+"</th><td>"+order[i][0]+"</td><td>"+order[i][1]+"</td><td>"+order[i][2]+"</td></tr>");
 	}
 })
+
+$('.status_button').click(function(event) {event.preventDefault()
+	var index = $(this).data('index');
+	console.log(index)
+$.ajax({
+    type: "POST",
+    url: "/order_status",
+    
+    data: JSON.stringify({"index":index,"status":"Completed"}),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(data){console.log("Submitted Data")
+$(".status").html("<span class='badge badge-success'>Completed</span>")},
+    failure: function(errMsg) {
+        alert(errMsg);
+    }
+})})
