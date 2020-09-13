@@ -36,11 +36,10 @@ $('.item').click(function(event) {event.preventDefault();
   
   document.getElementById("edit_title").value = title;
 	document.getElementById("edit_sku").value = sku;
-								  document.getElementById("edit_url").value = url;
+	document.getElementById("edit_url").value = url;
 	document.getElementById("edit_price").value = price;
-								  document.getElementById("edit_index").value = index;
-	document.getElementById("edit_description").value = description;
-								  
+	document.getElementById("edit_index").value = index;
+	document.getElementById("edit_description").value = description;							  
 	document.getElementById("edit_tags").value = tags; // Convert tags from list to string
 	document.getElementById("edit_mats").value = mats;
 	document.getElementById("edit_color").value = color;

@@ -164,7 +164,7 @@ def checkout(details):
 	  'product_data': {
 		'name': 'THE MASK STORE',
 	  },
-	  'unit_amount': int(price),},'quantity': 1,}],mode='payment',success_url='http://localhost:8989/thank-you/?'+url_ending,cancel_url='http://localhost:8989/static/shoping-cart.html')
+	  'unit_amount': int(price),},'quantity': 1,}],mode='payment',success_url='https://masksstore.co/thank-you/?'+url_ending,cancel_url='https://masksstore.co/static/shoping-cart.html')
 	return jsonify(session_id=session.id)
 
 @app.route('/741852963',methods=["GET","POST"])

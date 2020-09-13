@@ -508,7 +508,7 @@ function displayCart(page = 0) {
   $('.total-cart1').html("Total: $"+shoppingCart.totalCart());
   $('#total-count').data('notify',shoppingCart.totalCount());
 	document.getElementsByClassName(".complete-total").value = shoppingCart.totalCart()+9.10
-   $('.complete-total').html("$"+(shoppingCart.totalCart()+9.10).toFixed(2))//Number(document.getElementById('shipping_cost').value));
+   $('.complete-total').html("$"+(shoppingCart.totalCart()).toFixed(2))//Number(document.getElementById('shipping_cost').value));
   //$('.total-count').html(shoppingCart.totalCount());
 }
 
