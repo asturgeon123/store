@@ -67,6 +67,7 @@ $.ajax({
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function(data){
+    	location.reload()
 	console.log("Submitted Data")},
     failure: function(errMsg) {
         alert(errMsg);
@@ -109,7 +110,8 @@ $.ajax({
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function(data){
-	console.log("Submitted Data")},
+	console.log("Submitted Data")
+	location.reload()},
     failure: function(errMsg) {
         alert(errMsg);
     }

@@ -17,7 +17,7 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="row mt-3">
         <div class="col">
-          <div class="list-group"> {% for product in products %} <a href="#" class="item list-group-item list-group-item-action" data-title="{{ product['title'] }}" data-sku="{{ product['sku'] }}" data-index="{{ loop.index }}" data-url="{{ product['Url'] }}" data-price="{{ product['price'] }}" data-description="{{ product['description'] }}" data-tags="{{ product['tags']|join(' ') }}" data-mats="{{ product['mats'] }}" data-color="{{ product['color'] }}" data-size="{{ product['size'] }}" data-image1="{{ product["Images"][0] }}" data-image2="{{ product["Images"][1] }}" data-image3="{{ product["Images"][2] }}"> {{ product['title'] }} </a> {% endfor %} </div>
+          <div class="list-group"> {% for product in products %} <a href="#" class="item list-group-item list-group-item-action" data-title="{{ product['title'] }}" data-sku="{{ product['sku'] }}" data-index="{{ loop.index }}" data-url="{{ product['Url'] }}" data-price="{{ product['price'] }}" data-description="{{ product['description'] }}" data-tags="{{ product['tags']|join(' ') }}" data-mats="{{ product['mats'] }}" data-color="{{ product['color'] }}" data-size="{{ product['size'] }}" data-image1="{{ product['Images'][0] }}" data-image2="{{ product['Images'][1] }}" data-image3="{{ product['Images'][2] }}"> {{ product['title'] }} </a> {% endfor %} </div>
         </div>
         <div class="col">
           <div class="card mb-3">

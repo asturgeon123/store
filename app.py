@@ -175,10 +175,13 @@ def editor():
 		database = database_load()
 		data = request.get_json()
 		print(data)
-		if data['index'] == -2:
-			database.append(data)
+		print(data['index'])
+		if int(data['index']) == -2:
+			index = len(database['data'])
+			data['index'] = index + 1
+			database['data'].append(data)
 			print('Product ADDED')
-		elif data['index'] == -1:
+		elif int(data['index']) == -1:
 			print(data['del'])
 			del database['data'][int(data['del'])-1]
 			print('Product DELETED')
