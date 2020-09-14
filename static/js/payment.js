@@ -1,6 +1,6 @@
 // JavaScript Document
 var inputs = document.getElementsByClassName("shipping-form");
-var stripe = Stripe('pk_test_51HI3pfLOw0BgohiPe0gDzdbSnz8yWvcEK2V1dheuuqOwciZikeRQXLtNXmO4kTaplQWdC1IhG9NxT65u3TXeYUmr00lWMmoXZ0');
+var stripe = Stripe('pk_live_51HI3pfLOw0BgohiPif7eUuScjpMq5W3vPhcULBuAcRXkgPbOAyq71MLpPQ4vDDLmq6g6uhQlJhKandSGQzHj1GzJ00XQlMNs6z');
 var ready = true
 var submission_status = window.sessionStorage;
 

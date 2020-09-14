@@ -155,7 +155,7 @@ def checkout(details):
 
 	price = str(a2).replace('.','')
 	url_ending = json.dumps(details)
-	stripe.api_key = 'sk_test_51HI3pfLOw0BgohiPlfqVDarZXOX21Isj4e8oGJTr0c3hlks8uXoJmkHEdcBHZEVs0dCCgDkzBGp9PxFjsKrR8sLQ003GxQjuib'
+	stripe.api_key = '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'
 	session = stripe.checkout.Session.create(
   payment_method_types=['card'],
   line_items=[{
